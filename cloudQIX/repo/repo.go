@@ -11,7 +11,6 @@ func MapFields(input JSON, mapping map[string]string) (JSON, error) {
 	result := make(JSON)
 
 	for outKey, mapPath := range mapping {
-		// If no path is provided for the field, set it to an empty string
 		if mapPath == "" {
 			result[outKey] = ""
 			continue
@@ -38,7 +37,7 @@ func MapFields(input JSON, mapping map[string]string) (JSON, error) {
 			curr = next
 		}
 
-		// Store the extracted value under the target key
+		// Store the extracted value under the target key here we can assing the value to the result map
 		result[outKey] = val
 	}
 

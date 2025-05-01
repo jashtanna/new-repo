@@ -7,7 +7,6 @@ import (
 	"github.com/rs/cors"
 )
 
-// RegisterCorsMiddleware sets up CORS  for the Gin router.
 // This is important when your frontend and backend are hosted on different domains or ports.
 // It ensures the browser allows requests between them.
 func RegisterCorsMiddleware(r *gin.Engine) {
@@ -23,7 +22,6 @@ func RegisterCorsMiddleware(r *gin.Engine) {
 		httpResponseWriter := c.Writer
 		httpRequest := c.Request
 
-		// Apply the CORS rules before continuing to the next middleware/handler
 		corsHandler.ServeHTTP(httpResponseWriter, httpRequest, func(w http.ResponseWriter, r *http.Request) {
 			c.Next()
 		})
